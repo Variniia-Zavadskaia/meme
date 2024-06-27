@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/main.css">
         <title>Meme Generator</title>
     </head>
 
-    <body>
+    <body  onload="onInit()">
         <header>
             <nav>
-                <div class="logo">Blogin</div>
+                <div class="logo">Meme Generator</div>
                 <div class="main-nav">
                     <ul>
                         <li><a href="#">Gallery</a></li>
@@ -33,9 +34,17 @@
 
             </section>
 
-            <section class="editor">
-                
-            </section>
+            <div class="editor">
+                <section class="editor-container">
+                    <div class="canvas-container">
+                        <canvas id="my-canvas" width="400" height="400"></canvas>
+                    </div>
+                </section>
+            </div>
         </main>
+
+        <script src="./js/services/memeService.js"></script>
+        <script src="./js/controllers/memeController.js"></script>
+        <script src="./js/main.js"></script>
     </body>
 </html>
