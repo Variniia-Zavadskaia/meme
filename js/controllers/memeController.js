@@ -3,31 +3,29 @@ var gElCanvas
 var gCtx
 var gImg = null
 
-function onOpenEditor() {
+function onOpenEditor(meme = null) {
     document.querySelector('.gallery').style.display = 'none'
     document.querySelector('.editor').style.display = 'block'
-    
-    getMeme()
 
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    resizeCanvas() 
+    resizeCanvas()
 
+    meme = getMeme()
     gImg = new Image()
-    gImg.src = gImgs[gMeme.selectedImgId].url
+    gImg.src = getImgById(meme.selectedImgId)
     gImg.onload = () => renderMeme()
 
     renderMeme()
-
 }
-
 
 function renderMeme() {
     const meme = getMeme()
-    renderImg(gImg) 
-   
-    drawLineTxt(meme.selectedLineIdx, gElCanvas.width * 0.5, gElCanvas.height * 0.1)
+    renderImg(gImg)
+    
+
+    drawLineTxt(meme.lines[meme.selectedLineIdx], gElCanvas.width * 0.5, gElCanvas.height * 0.1)
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
 }
 
@@ -35,16 +33,28 @@ function renderImg(gImg) {
     gCtx.drawImage(gImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
+function onSetLineTxt() {
+    const elLineTxtIn = document.getElementById('line-inp')
+    const newLineTxt = elLineTxtIn.value
+
+    console.log('dsds')
+    console.log(newLineTxt)
+
+    setLineTxt(newLineTxt)
+    renderMeme()
+}
+
 function drawLineTxt(line, x, y) {
-    var txt = line.txt
+    gCtx.beginPath()
+
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'brown'
-    gCtx.fillStyle = 'black'
-    gCtx.font = '40px Arial'
+    gCtx.strokeStyle = line.strokeColor
+    gCtx.fillStyle =  line.fillColor
+    gCtx.font = line.size + 'px ' + 'Arial'
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(txt, x, y)
-    gCtx.strokeText(txt, x, y)
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
 function resizeCanvas() {

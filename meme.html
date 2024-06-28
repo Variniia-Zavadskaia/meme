@@ -9,15 +9,19 @@
 
     <body onload="onInit()">
         <header>
+            <div class="logo">
+                <a href="/">
+                    <img src="icons/meme.png" width="100" height="100">
+                </a>
+            </div>
             <nav>
-                <div class="logo">Meme Generator</div>
                 <div class="main-nav">
                     <ul>
-                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#" onclick="renderGallery()">Gallery</a></li>
                         <li><a href="#">Saved</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- hamburger menu -->
                 <!-- <button class="btn-toggle-menu" onclick="toggleMenu()">
                     <div class="hamburger-lines">
@@ -30,16 +34,19 @@
         </header>
 
         <main class="main-container">
-            <section class="gallery"></section>
+            <div class="gallery">
+                <section class="gallery-container img-gallery"></section>
+
+            </div>
 
             <div class="editor">
                 <section class="editor-container">
                     <div class="canvas-container">
                         <canvas id="my-canvas" width="400" height="400"></canvas>
                     </div>
-                    <form class="navbar-editor-container ">
+                    <form class="navbar-editor-container">
                         <label class="line-inp">
-                            <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()" />
+                            <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onSetLineTxt()" />
                         </label>
 
                         <div class="tools">
@@ -84,11 +91,7 @@
                             </label>
 
                             <div class="button-with-img-icon font-up" onclick="onIncreaseFont()">
-                                <img
-                                    src="icons/fluent_font_increase_regular_icon.png"
-                                    alt=""
-                                    height="20"
-                                    width="20" />
+                                <img src="icons/fluent_font_increase_regular_icon.png" alt="" height="20" width="20" />
                             </div>
 
                             <div class="button-with-img-icon font-down" onclick="onDecreaseFont()">
@@ -132,11 +135,7 @@
                             </a>
 
                             <div class="button-with-img-icon share-facebook" onclick="onUploadImg()">
-                                <img
-                                    src="icons/facebook_media_share_social_icon.png"
-                                    alt=""
-                                    height="20"
-                                    width="20" />
+                                <img src="icons/facebook_media_share_social_icon.png" alt="" height="20" width="20" />
                             </div>
                         </div>
                     </form>

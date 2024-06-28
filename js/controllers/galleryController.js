@@ -5,7 +5,7 @@ function renderGallery() {
     document.querySelector('.editor').style.display = 'none'
 
     const imgs = getImgs()
-    const elGallery = document.querySelector('.gallery')
+    const elGallery = document.querySelector('.gallery-container')
 
     const strHTMLs = imgs.map(img =>{
         return `<div class="img-card">

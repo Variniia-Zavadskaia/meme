@@ -1,0 +1,53 @@
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.main-nav {
+    flex-grow: 1;
+}
+.main-nav ul {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 2px 0 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 18px;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-right: 20px;
+}
+
+.main-nav li:last-child {
+    margin-right: 0;
+}
+
+.main-nav a {
+    padding: 8px 10px;
+}
+
+.logo {
+    margin: 20px 30px 10px ;
+}
+
+.main-nav a,
+.main-nav a:hover{
+    display: block;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.27em;
+}
+
+.main-nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+.main-nav a:hover{
+    color: #fff;
+    background-color: red;
+    border-radius: 8px;
+}
