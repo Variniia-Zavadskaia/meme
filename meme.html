@@ -39,12 +39,18 @@
                     <div class="canvas-container">
                         <canvas id="my-canvas" width="400" height="400"></canvas>
                     </div>
+                    <form class="navbar-editor-container">
+                        <label class="line-inp">
+                            <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onLineChange()" />
+                        </label>
+                    </form>
                 </section>
             </div>
         </main>
 
         <script src="./js/services/memeService.js"></script>
         <script src="./js/controllers/memeController.js"></script>
+        <script src="./js/controllers/galleryController.js"></script>
         <script src="./js/main.js"></script>
     </body>
 </html>

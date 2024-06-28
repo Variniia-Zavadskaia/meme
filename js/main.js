@@ -1,6 +1,6 @@
 'use strict'
 
 function onInit() {
-    onOpenGallery()
+    // renderGallery()
     onOpenEditor() 
 }

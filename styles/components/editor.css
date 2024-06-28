@@ -1,6 +1,6 @@
 .editor-container {
     display: grid;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
     justify-content: space-around;
     align-items: center;
     gap: 40px;
@@ -18,4 +18,11 @@
 .canvas {
     aspect-ratio: 1/ 1;
     width: min(100%, 100vh * 2 / 2);
+}
+
+.navbar-editor-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    border: 1px solid black;
 }
