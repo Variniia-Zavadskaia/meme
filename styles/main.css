@@ -1,1 +1,6 @@
-@import url('components/editor.css')
+@import url('basics/base.css');
+
+@import url('components/editor.css');
+@import url('components/nav-container.css');
+
+@import url('setup/vars.css');

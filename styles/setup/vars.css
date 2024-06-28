@@ -1,0 +1,14 @@
+:root {
+    /* PALLETE */
+    --clrPrimary-1: #babecc;
+    --clrPrimary-2: #ebecf0;
+    --clrPrimary-4: #ffffff;
+
+    /* layout */
+    --headerHeight: 100px;
+
+    /* mq */
+    --l: 1060px;
+    --m: 860px;
+    --s: 600px;
+}

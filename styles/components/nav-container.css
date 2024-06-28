@@ -1,0 +1,119 @@
+.navbar-editor-container  div {
+    color: var(--clrPrimary-1);
+    text-shadow: 1px 1px 1px var(--clrPrimary-4);
+}
+
+.line-edit,
+.line-decor,
+.tools,
+.share {
+    padding: 10px 0;
+}
+
+.line-edit,
+.line-decor,
+.tools,
+.share {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* .share {
+    justify-content: end;
+} */
+
+.button-with-img-icon,
+#line-inp,
+#font-size,
+#fontFamily {
+    border: 0;
+    outline: 0;
+    padding: 16px;
+    background-color: var(--clrPrimary-2);
+    text-shadow: 1px 1px 0 var(--clrPrimary-4);
+}
+
+.line-inp {
+    display: block;
+    margin-bottom: 24px;
+}
+
+#line-inp,
+#font-size,
+#fontFamily {
+    font-size: 16px;
+    border-radius: 320px;
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px var(--clrPrimary-1), inset -5px -5px 10px var(--clrPrimary-4);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &:focus {
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
+            inset -1px -1px 2px var(--clrPrimary-4);
+    }
+}
+
+#fontFamily {
+    width: 110px;
+}
+
+#font-size {
+    width: 80px;
+}
+
+.button-with-img-icon {
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px var(--clrPrimary-4), 5px 5px 20px var(--clrPrimary-1);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 19px;
+
+    &:hover {
+        box-shadow: -2px -2px 5px var(--clrPrimary-4), 2px 2px 5px var(--clrPrimary-1);
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
+            inset -1px -1px 2px var(--clrPrimary-4);
+    }
+
+    .img {
+        margin-right: 8px;
+    }
+
+    &.red {
+        color: red;
+    }
+}
+
+input[type='color'] {
+    z-index: -1;
+    position: absolute;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    label {
+        margin: 0;
+        flex: 1;
+    }
+}

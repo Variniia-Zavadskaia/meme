@@ -18,21 +18,8 @@ function getMeme() {
     return gMeme
 }
 
-function drawImg() {
-    const elImg = new Image()
-    elImg.src = gImgs[gMeme.selectedImgId].url
-    elImg.onload = () => {
-        coverCanvasWithImg(elImg)
-    }
-}
-function onSelectImg(gImgs) {
-    coverCanvasWithImg(gImgs)
-}
 
-function coverCanvasWithImg(elImg) {
-    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-}
+
 
 function drawLine(text, x, y) {
     gCtx.lineWidth = 2
