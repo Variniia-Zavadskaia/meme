@@ -27,11 +27,24 @@ function renderMeme() {
     const meme = getMeme()
     renderImg(gImg) 
    
-    drawLine('Drawing text!', gElCanvas.width * 0.5, gElCanvas.height * 0.1)
+    drawLineTxt(meme.selectedLineIdx, gElCanvas.width * 0.5, gElCanvas.height * 0.1)
+    document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
 }
 
 function renderImg(gImg) {
     gCtx.drawImage(gImg, 0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+function drawLineTxt(line, x, y) {
+    var txt = line.txt
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = 'brown'
+    gCtx.fillStyle = 'black'
+    gCtx.font = '40px Arial'
+    gCtx.textAlign = 'center'
+    gCtx.textBaseline = 'middle'
+    gCtx.fillText(txt, x, y)
+    gCtx.strokeText(txt, x, y)
 }
 
 function resizeCanvas() {
