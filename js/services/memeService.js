@@ -25,16 +25,20 @@ var gImgs = [
 ]
 
 var gMeme = {
-    selectedImgId: 1,
+    selectedImgId: 2,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 40,
-            fillColor: '#ffffff',
-            strokeColor: '#000000',
-        },
-    ],
+    lines: [_createLineTxt()],
+}
+
+function _createLineTxt() {
+    return {
+        txt: 'Add Text Here',
+        font: 'Inpact',
+        size: 40,
+        fillColor: '#ffffff',
+        strokeColor: '#000000',
+        pos: null,
+    }
 }
 
 function getMeme() {
@@ -53,6 +57,19 @@ function setImg(id) {
     gMeme.selectedImgId = id
 }
 
+function addLineTxt() {
+    const line = _createLineTxt()
+    gMeme.lines.push(line)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function switchLineTxt() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    }
+}
+
 function setLineTxtIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
@@ -61,7 +78,18 @@ function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
-function onDownloadMeme(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg')
-    elLink.href = imgContent
+function setLineTxtFill(fillColor) {
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = fillColor
+}
+
+function setLineTxtStroke(strokeColor) {
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = strokeColor
+}
+
+function lineTxtIncreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size += 2
+}
+
+function lineTxtDecreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size -= 2
 }

@@ -1,13 +1,14 @@
-.navbar-editor-container  div {
+.navbar-editor-container div {
     color: var(--clrPrimary-1);
     text-shadow: 1px 1px 1px var(--clrPrimary-4);
+    /* justify-content: space-between; */
 }
 
 .line-edit,
 .line-decor,
 .tools,
 .share {
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .line-edit,
@@ -53,8 +54,7 @@
     -webkit-appearance: none;
 
     &:focus {
-        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
-            inset -1px -1px 2px var(--clrPrimary-4);
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1), inset -1px -1px 2px var(--clrPrimary-4);
     }
 }
 
@@ -89,8 +89,7 @@
     }
 
     &:active {
-        box-shadow: inset 1px 1px 2px var(--clrPrimary-1),
-            inset -1px -1px 2px var(--clrPrimary-4);
+        box-shadow: inset 1px 1px 2px var(--clrPrimary-1), inset -1px -1px 2px var(--clrPrimary-4);
     }
 
     .img {
@@ -100,6 +99,33 @@
     &.red {
         color: red;
     }
+}
+
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    width: max-content; /* Ширина подсказки */
+    left: 0;
+    top: 0; /* Положение подсказки */
+    background: #bdbcbc; /* Синий цвет фона */
+    color: #3c3a3a; /* Цвет текста */
+    letter-spacing: -0.2px;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /*Параметры тени*/
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 0.5s; /* Время появления подсказки */
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: -1.5em; /*Положение подсказки*/
 }
 
 input[type='color'] {
