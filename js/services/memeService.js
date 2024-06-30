@@ -38,6 +38,7 @@ function _createLineTxt() {
         fillColor: '#ffffff',
         strokeColor: '#000000',
         pos: null,
+        dimentions: null,
     }
 }
 
@@ -68,6 +69,25 @@ function switchLineTxt() {
     if (gMeme.selectedLineIdx >= gMeme.lines.length) {
         gMeme.selectedLineIdx = 0
     }
+}
+
+function findLineTxtIdxCliked(clickedPos) {
+    return gMeme.lines.findIndex(line => {
+        if (
+            clickedPos.x <= line.pos.x + line.dimentions.width / 2 &&
+            clickedPos.x >= line.pos.x - line.dimentions.width / 2 &&
+            clickedPos.y <= line.pos.y + line.dimentions.height / 2 &&
+            clickedPos.y >= line.pos.y - line.dimentions.height / 2
+        ) {
+            return true
+        }
+        return false
+    })
+}
+
+function moveLineTxt(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
 }
 
 function setLineTxtIdx(idx) {

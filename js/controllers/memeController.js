@@ -4,6 +4,7 @@ var gCtx
 var gImg = null
 var gDrag = false
 var gStartPos
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 function onOpenEditor(meme = null) {
     document.querySelector('.gallery').style.display = 'none'
@@ -39,12 +40,12 @@ function renderMeme() {
             line.pos = pos
         }
 
-        drawLineTxt(line, idx === meme.selectedLineIdx)
+        line.dimentions = drawLineTxt(line, idx === meme.selectedLineIdx)
     })
 
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
-    // document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
-    // document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
+    document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
+    document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
 }
 
 function renderImg(gImg) {
@@ -98,10 +99,10 @@ function onLineTxtDecreaseFont() {
 function onDown(ev) {
     console.log('onDown')
     const pos = getEvPos(ev)
-    const currIdx = findLineIdxCliked(pos)
+    const currIdx = findLineTxtIdxCliked(pos)
     console.log(pos, currIdx)
     if (currIdx === -1) return
-    setLineIdx(currIdx)
+    setLineTxtIdx(currIdx)
     renderMeme()
 
     gDrag = true
@@ -116,7 +117,7 @@ function onMove(ev) {
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
 
-    moveLine(dx, dy)
+    moveLineTxt(dx, dy)
     gStartPos = pos
     renderMeme()
 }
