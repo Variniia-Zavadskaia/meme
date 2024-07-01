@@ -20,7 +20,7 @@ function onOpenEditor(meme = null) {
     gImg.src = getImgById(meme.selectedImgId)
     gImg.onload = () => renderMeme()
     addListeners()
-    renderMeme()
+    // renderMeme()
 }
 
 function renderMeme() {
@@ -46,6 +46,8 @@ function renderMeme() {
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
     document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
     document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
+    document.getElementById('fontFamily').value = meme.lines[meme.selectedLineIdx].font
+    document.getElementById('font-size').value = meme.lines[meme.selectedLineIdx].size
 }
 
 function renderImg(gImg) {
@@ -54,6 +56,11 @@ function renderImg(gImg) {
 
 function onAddLineTxt() {
     addLineTxt()
+    renderMeme()
+}
+
+function onDeleteLineTxt(){
+    deleteLineTxt()
     renderMeme()
 }
 
@@ -93,6 +100,22 @@ function onLineTxtIncreaseFont() {
 
 function onLineTxtDecreaseFont() {
     lineTxtDecreaseFont()
+    renderMeme()
+}
+
+function onChangeFontFamily(){
+    const elFontFamily = document.getElementById('fontFamily')
+    let font = elFontFamily.value 
+
+    changeFontFamily(font) 
+    renderMeme()
+}
+
+function onChangeFontSize(){
+    const elFontSize = document.getElementById('font-size')
+    let size = elFontSize.value 
+
+    changeFontSize(size)
     renderMeme()
 }
 

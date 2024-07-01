@@ -64,6 +64,14 @@ function addLineTxt() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function deleteLineTxt() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (gMeme.selectedImgId >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    }
+}
+
 function switchLineTxt() {
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx >= gMeme.lines.length) {
@@ -112,4 +120,12 @@ function lineTxtIncreaseFont() {
 
 function lineTxtDecreaseFont() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
+}
+
+function changeFontFamily(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function changeFontSize(size) {
+    gMeme.lines[gMeme.selectedLineIdx].size = size
 }
