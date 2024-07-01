@@ -7,8 +7,8 @@
         <title>Meme Generator</title>
     </head>
 
-    <body onload="onInit()" onkeydown="onKeyDown(event)">
-        <header>
+    <body class="main-layout" onload="onInit()" onkeydown="onKeyDown(event)">
+        <header class="full">
             <div class="logo">
                 <a href="/">
                     <img src="icons/meme.png" width="100" height="100" />
@@ -33,7 +33,7 @@
             </nav>
         </header>
 
-        <main class="main-container">
+        <main class="full">
             <div class="gallery">
                 <section class="gallery-container img-gallery"></section>
             </div>
@@ -41,8 +41,9 @@
             <div class="editor">
                 <section class="editor-container">
                     <div class="canvas-container">
-                        <canvas id="my-canvas" width="400" height="400"></canvas>
+                        <canvas class="canvas" width="400" height="400"></canvas>
                     </div>
+                    
                     <form class="navbar-editor-container">
                         <label class="line-inp">
                             <input type="text" id="line-inp" placeholder="Add Text Here" oninput="onSetLineTxt()" />
@@ -96,16 +97,16 @@
                         </div>
 
                         <div class="line-decor">
-                            <select id="fontFamily" value="" onchange="onChangeFontFamily()">
-                                <!-- <option id="impact" value="Impact">Impact</option>
-                                <option id="anton" value="anton">Anton</option>
-                                <option id="cinzel" value="cinzel">Cinzel</option>
-                                <option id="dancingscript" value="dancingscript">Dancingscript</option>
-                                <option id="danfo" value="danfo">Danfo</option>
-                                <option id="geostarfill" value="geostarfill">Geostarfill</option>
-                                <option id="moolahlah" value="moolahlah">Moolahlah</option>
-                                <option id="rubikpuddles" value="rubikpuddles">Rubikpuddles</option>
-                                <option id="teko" value="teko">Teko</option> -->
+                            <select id="font-family" value=" " onchange="onChangeFontFamily()">
+                                <!-- <option style="font-family: impact">Impact</option>
+                                <option style="font-family: anton" ;>Anton</option>
+                                <option style="font-family: cinzel">Cinzel</option>
+                                <option style="font-family: dancingscript">Dancingscript</option>
+                                <option style="font-family: danfo">Danfo</option>
+                                <option style="font-family: geostarfill">Geostarfill</option>
+                                <option style="font-family: moolahlah">Moolahlah</option>
+                                <option style="font-family: rubikpuddles">Rubikpuddles</option>
+                                <option style="font-family: teko">Teko</option> -->
                                 <option id="impact" value="Impact">Impact</option>
                                 <option id="arial" value="Arial">Arial</option>
                                 <option id="georgia" value="Georgia">Georgia</option>

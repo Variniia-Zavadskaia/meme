@@ -46,8 +46,8 @@ function renderMeme() {
     document.getElementById('line-inp').value = meme.lines[meme.selectedLineIdx].txt
     document.getElementById('icon-btn-fill').value = meme.lines[meme.selectedLineIdx].fillColor
     document.getElementById('icon-btn-stroke').value = meme.lines[meme.selectedLineIdx].strokeColor
-    document.getElementById('fontFamily').value = meme.lines[meme.selectedLineIdx].font
     document.getElementById('font-size').value = meme.lines[meme.selectedLineIdx].size
+    document.getElementById('font-family').value = meme.lines[meme.selectedLineIdx].font
 }
 
 function renderImg(gImg) {
@@ -104,16 +104,16 @@ function onLineTxtDecreaseFont() {
 }
 
 function onChangeFontFamily(){
-    const elFontFamily = document.getElementById('fontFamily')
-    let font = elFontFamily.value 
+    const elFont = document.getElementById('font-family')
+    let font = elFont.value 
 
     changeFontFamily(font) 
     renderMeme()
 }
 
 function onChangeFontSize(){
-    const elFontSize = document.getElementById('font-size')
-    let size = elFontSize.value 
+    const elFont = document.getElementById('font-size')
+    let size = elFont.value 
 
     changeFontSize(size)
     renderMeme()
@@ -155,16 +155,16 @@ function onKeyDown(event) {
     console.log(event.code)
     switch (event.code) {
         case 'ArrowLeft':
-            moveLine(-3, 0)
+            moveLineTxt(-3, 0)
             break
         case 'ArrowRight':
-            moveLine(3, 0)
+            moveLineTxt(3, 0)
             break
         case 'ArrowUp':
-            moveLine(0, -3)
+            moveLineTxt(0, -3)
             break
         case 'ArrowDown':
-            moveLine(0, 3)
+            moveLineTxt(0, 3)
             break
 
         default:
@@ -224,7 +224,7 @@ function drawLineTxt(line, selected) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = line.strokeColor
     gCtx.fillStyle = line.fillColor
-    gCtx.font = line.size + 'px ' + 'Impact'
+    gCtx.font = line.size + 'px ' + line.font
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
